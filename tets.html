@@ -1,0 +1,282 @@
+<!-- 🌟 Premium Mailing List Form – Drop into Webflow Embed -->
+<section class="subscribe-section" aria-labelledby="subscribe-heading">
+  <div class="subscribe-container">
+    <h2 id="subscribe-heading" class="subscribe-heading">Join Our Mailing List</h2>
+    <p class="subscribe-desc">
+      Get insider updates, early access to events, and exclusive offers from 
+      <span class="brand-highlight">Your Brand</span>.
+    </p>
+
+    <form id="subscribe-form" class="subscribe-form" novalidate>
+      <!-- Honeypot (anti-bot) -->
+      <input type="text" name="company_hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <div class="grid-row">
+        <div class="field">
+          <label for="firstName">First Name</label>
+          <input id="firstName" name="first_name" type="text" placeholder="John" />
+        </div>
+        <div class="field">
+          <label for="lastName">Last Name</label>
+          <input id="lastName" name="last_name" type="text" placeholder="Doe" />
+        </div>
+      </div>
+
+      <div class="grid-row">
+        <div class="field">
+          <label for="email">Email Address <span>*</span></label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+          <div class="error" id="email-error"></div>
+        </div>
+        <div class="field">
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" placeholder="+1 555 000 1234" />
+        </div>
+      </div>
+
+      <div class="grid-row">
+        <div class="field">
+          <label for="city">City</label>
+          <input id="city" name="city" type="text" placeholder="New York" />
+        </div>
+        <div class="field">
+          <label for="company">Company Name</label>
+          <input id="company" name="company" type="text" placeholder="Your Company" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="interest">I'm Interested In</label>
+        <select id="interest" name="interest">
+          <option value="" selected>Select your interest</option>
+          <option value="events">Upcoming Events</option>
+          <option value="updates">Brand Updates</option>
+          <option value="offers">Exclusive Offers</option>
+          <option value="partnership">Partnerships</option>
+        </select>
+      </div>
+
+      <div class="consent">
+        <input id="consent" name="consent" type="checkbox" required />
+        <label for="consent">I agree to receive email updates from Your Brand.</label>
+      </div>
+
+      <button type="submit" class="btn">Join Now</button>
+
+      <p class="status success" id="success-msg" hidden>🎉 Thanks for subscribing! Please check your inbox.</p>
+      <p class="status fail" id="fail-msg" hidden>⚠️ Something went wrong. Please try again.</p>
+    </form>
+  </div>
+</section>
+
+<style>
+  /* 🌈 Color Palette */
+  :root {
+    --bg: #f0f4f8;
+    --card-bg: rgba(255, 255, 255, 0.9);
+    --accent: #2563eb;
+    --accent-dark: #1e40af;
+    --text: #0f172a;
+    --muted: #475569;
+    --border: #e2e8f0;
+    --success: #15803d;
+    --error: #b91c1c;
+  }
+
+  .subscribe-section {
+    background: linear-gradient(135deg, #e0f2fe, #f8fafc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 20px;
+  }
+
+  .subscribe-container {
+    width: 100%;
+    max-width: 760px;
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .subscribe-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 45px rgba(15, 23, 42, 0.15);
+  }
+
+  .subscribe-heading {
+    font-size: clamp(26px, 3vw, 34px);
+    font-weight: 700;
+    color: var(--text);
+    margin: 0 0 10px;
+  }
+
+  .subscribe-desc {
+    color: var(--muted);
+    font-size: 16px;
+    margin: 0 0 25px;
+  }
+
+  .brand-highlight {
+    color: var(--accent-dark);
+    font-weight: 600;
+  }
+
+  .subscribe-form {
+    display: grid;
+    gap: 18px;
+  }
+
+  .grid-row {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .field {
+    display: grid;
+    gap: 6px;
+  }
+
+  label {
+    font-size: 14px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  input, select {
+    height: 46px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0 14px;
+    font-size: 16px;
+    color: var(--text);
+    background: #fff;
+    transition: all 0.2s ease;
+  }
+
+  input:focus, select:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.25);
+  }
+
+  .consent {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    color: var(--muted);
+    font-size: 14px;
+  }
+
+  .consent input {
+    margin-top: 4px;
+  }
+
+  .btn {
+    margin-top: 10px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-dark));
+    border: none;
+    border-radius: 14px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 17px;
+    height: 50px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.25);
+  }
+
+  .btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+  }
+
+  .error {
+    color: var(--error);
+    font-size: 13px;
+    min-height: 14px;
+  }
+
+  .status {
+    text-align: center;
+    font-size: 15px;
+    margin-top: 10px;
+  }
+
+  .success {
+    color: var(--success);
+  }
+
+  .fail {
+    color: var(--error);
+  }
+
+  .hp {
+    position: absolute !important;
+    left: -9999px !important;
+    opacity: 0 !important;
+  }
+</style>
+
+<script>
+  (function () {
+    const form = document.getElementById("subscribe-form");
+    const email = document.getElementById("email");
+    const emailErr = document.getElementById("email-error");
+    const successMsg = document.getElementById("success-msg");
+    const failMsg = document.getElementById("fail-msg");
+
+    function isValidEmail(v) {
+      return /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(v);
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      emailErr.textContent = "";
+      successMsg.hidden = true;
+      failMsg.hidden = true;
+
+      if (form.company_hp.value) return;
+
+      if (!isValidEmail(email.value.trim())) {
+        emailErr.textContent = "Please enter a valid email.";
+        return;
+      }
+
+      const btn = form.querySelector(".btn");
+      btn.disabled = true;
+      btn.style.opacity = "0.7";
+
+      try {
+        // Replace with your webhook or backend endpoint
+        const WEBHOOK = "YOUR_WEBHOOK_URL";
+        const payload = Object.fromEntries(new FormData(form));
+
+        if (WEBHOOK === "YOUR_WEBHOOK_URL") {
+          await new Promise(r => setTimeout(r, 800));
+          successMsg.hidden = false;
+          form.reset();
+        } else {
+          const res = await fetch(WEBHOOK, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          if (!res.ok) throw new Error("network");
+          successMsg.hidden = false;
+          form.reset();
+        }
+      } catch (err) {
+        failMsg.hidden = false;
+      } finally {
+        btn.disabled = false;
+        btn.style.opacity = "1";
+      }
+    });
+  })();
+</script>
